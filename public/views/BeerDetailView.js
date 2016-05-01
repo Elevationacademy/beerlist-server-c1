@@ -9,10 +9,7 @@ var BeerDetailView = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model.get('reviews'), 'add', this.addReview);
-    this.listenTo(this.model.get('reviews'), 'reset', function() {
-      this.renderReviews();
-      this.render();
-    });
+    this.listenTo(this.model.get('reviews'), 'reset', this.render);
   },
 
   createReview: function () {
